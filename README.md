@@ -3,18 +3,21 @@
 
 CoffeeScript用メジャーモード
 
+
 ## インストール
 - NetInstallerからインストール
 
-    [package.l](http://youz.github.com/xyzzy/package.l) を登録し、パッケージ`*scrape*`よりインストールして下さい。
+    http://youz.github.com/xyzzy/package.l を登録し、パッケージ`*scrape*`より
+    インストールして下さい。
 
 - 手動インストール
 
-    ページ上部Downloadリンクよりソース一式をダウンロードし、アーカイブ内のcoffee-mode.lを`*load-path*`に配置してください。
+    coffee-mode.lを`*load-path*`に配置してください。
 
 
 ## node.js と Cocoのインストール
-ソースのコンパイル、実行、インタラクティブ実行を行うにはnode.jsとCoffeeScriptのインストールが必要です。
+ソースのコンパイル、実行、インタラクティブ実行を行うにはnode.jsと
+CoffeeScriptのインストールが必要です。
 
 - [node.js](http://nodejs.org)
 - [CoffeeScript](http://jashkenas.github.com/coffee-script/)
@@ -35,15 +38,22 @@ CoffeeScript用メジャーモード
 - C-c c -- compile-buffer (バッファ全体の内容をJavaScriptにコンパイルし、結果を表示)
 - C-c C -- compile-region (リージョンの内容をJavaScriptにコンパイルし、結果を表示)
 - C-c i -- repl (CoffeeScriptのreplを起動)
-- C-c I -- rcpl (CoffeeScriptインタラクティブコンパイラを起動)
 - C-c C-x r -- evaluate-buffer-in-repl (バッファ全体の内容をrepl上で評価)
 - C-c C-x C-r -- evaluate-buffer-in-repl (リージョンの内容をrepl上で評価)
-- C-c C-x c -- compile-buffer-in-rcpl (バッファ全体の内容をrcpl上で評価)
-- C-c C-x C-c -- compile-region-in-rcpl (リージョンの内容をrcpl上で評価)
 - TAB -- indent-or-dabbrev-expand
 
 ## repl バッファ用キーバインド
 - C-j -- 改行
 - TAB -- indent-or-dabbrev-expand
+- C-c C-z -- 終了
 
-他は`*shell-mode-map*`と同じ
+他は`*shell-mode-map*`と同じです。
+
+
+## Author
+Yousuke Ushiki (<citrus.yubeshi@gmail.com>)
+
+[@Yubeshi](http://twitter.com/Yubeshi/)
+
+## License
+GPLv2
