@@ -347,8 +347,8 @@
 ;; want to indent the next line.
 
 (defparameter indenters-bol-regexp
-  #.(format nil "~{~A~^\\|~}"
-	    '("class" "for" "if" "else" "try" "case")))
+  (format nil "~{~A~^\\|~}"
+	  '("class" "for" "if" "else" "try" "case")))
 
 (defparameter indenters-eol '("->" "{" "["))
 
@@ -374,7 +374,7 @@ line? Returns `t' or `nil'. See the README for more details."
       (when (not indenter-at-bol)
 	(end-of-line)
 
-	(when (some #'(lambda (e) (looking-back e)) indenters-eol)
+	(when (some #'looking-back indenters-eol)
 	  (setq indenter-at-eol t)))
 
       ;; If we found an indenter, return `t'.
