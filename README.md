@@ -27,7 +27,7 @@ CoffeeScriptのインストールが必要です。
     (require "coffee-mode")
     (setq coffee:*command-path* "c:/path/to/node.exe c:/path/to/coffee-script/bin/coffee"
           coffee:*compiled-buffer-mode* 'jscript-mode)
-    (push '("\\.coffee\\)?$" . coffee-mode) *auto-mode-alist*)
+    (push '("\\.coffee$" . coffee-mode) *auto-mode-alist*)
 
 
 ## キーバインド
