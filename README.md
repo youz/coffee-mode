@@ -15,7 +15,7 @@ CoffeeScript用メジャーモード
     coffee-mode.lを`*load-path*`に配置してください。
 
 
-## node.js と Cocoのインストール
+## node.js と CoffeeScriptのインストール
 ソースのコンパイル、実行、インタラクティブ実行を行うにはnode.jsと
 CoffeeScriptのインストールが必要です。
 
