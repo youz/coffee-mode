@@ -13,6 +13,7 @@
 
 (in-package :coffee)
 (export '(*command-path* *compiled-buffer-mode* *keymap* *repl-keymap*
+	  *additional-keyword-files*
 	  *tab-width* *hook*))
 
 (defvar *command-path* nil
@@ -34,11 +35,16 @@
 (defvar *repl-buffer-name* "*coffee-repl*")
 
 (defvar *keyword-file* "CoffeeScript")
+(defvar *additional-keyword-files* nil)
 (defvar *keyword-table* nil)
+
 (defun load-keyword ()
-  (or *keyword-table*
-      (setq *keyword-table*
-	    (load-keyword-file *keyword-file*))))
+  (unless *keyword-table*
+    (let ((tbl (load-keyword-file *keyword-file*)))
+      (dolist (kwf *additional-keyword-files*)
+	(setq tbl (load-keyword-file kwf nil tbl)))
+      (setq *keyword-table* tbl)))
+  *keyword-table*)
 
 (defparameter *keyword-regexps*
   (compile-regexp-keyword-list
