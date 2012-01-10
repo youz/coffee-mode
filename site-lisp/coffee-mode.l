@@ -2,11 +2,16 @@
 
 ;; coffee-mode.l - CoffeeScript用メジャーモード for xyzzy
 
-(defpackage "coffee-mode"
-  (:nicknames "coffee")
+(provide "coffee-mode")
+
+(in-package :editor)
+(export '(coffee-mode))
+
+(defpackage :coffee-mode
+  (:nicknames :coffee)
   (:use :lisp :editor))
 
-(in-package "coffee")
+(in-package :coffee)
 (export '(*command-path* *compiled-buffer-mode* *keymap* *repl-keymap*
 	  *tab-width* *hook*))
 
@@ -406,26 +411,22 @@ line? Returns `t' or `nil'. See the README for more details."
 
 
 ;;; mode definition
-(in-package "editor")
-(defun coffee-mode ()
+(defun ed::coffee-mode ()
   (interactive)
   (kill-all-local-variables)
   (setq mode-name "coffee"
-	buffer-mode 'coffee-mode
+	buffer-mode 'ed::coffee-mode
 	comment-start "#"
 	comment-end "")
-  (use-syntax-table coffee::*syntax-table*)
-  (use-keymap coffee::*keymap*)
+  (use-syntax-table *syntax-table*)
+  (use-keymap *keymap*)
   (make-local-variable 'keyword-hash-table)
-  (setq keyword-hash-table (coffee::load-keyword))
+  (setq keyword-hash-table (load-keyword))
   (make-local-variable 'regexp-keyword-list)
-  (setq regexp-keyword-list coffee::*keyword-regexps*)
-  (make-local-variable 'build-summary-function)
-  (setq build-summary-function #'coffee::summary-of-functions)
+  (setq regexp-keyword-list *keyword-regexps*)
+  (make-local-variable 'ed::build-summary-function)
+  (setq ed::build-summary-function 'summary-of-functions)
   (ed::set-buffer-local 'indent-tabs-mode nil)
   (make-local-variable '*post-command-hook*)
-  (run-hooks 'coffee::*hook*))
+  (run-hooks '*hook*))
 
-(export '(coffee-mode))
-
-(provide "coffee-mode")
