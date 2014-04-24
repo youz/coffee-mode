@@ -7,7 +7,7 @@ CoffeeScript用メジャーモード
 ## インストール
 - NetInstallerからインストール
 
-    http://youz.github.com/xyzzy/package.l を登録し、パッケージ`*scrape*`より
+    http://youz.github.com/xyzzy/packages.l を登録し、パッケージ`*scrape*`より
     インストールして下さい。
 
 - 手動インストール
